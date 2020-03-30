@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity()
             }
             else{
                 Toast.makeText(this, "Please enter your name.", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, Main2Activity::class.java)    // change in production
+                startActivity(intent)   //change in production
 
             }
         }

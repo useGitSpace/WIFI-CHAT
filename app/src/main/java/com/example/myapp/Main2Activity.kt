@@ -1,7 +1,10 @@
 package com.example.myapp
 
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.View
+import android.view.Window
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
@@ -33,23 +36,6 @@ class Main2Activity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-//        listView.setOnItemClickListener { parent: AdapterView<*>, view: View, position:Int, id:Long ->
-//            if(position==0)
-//            {
-//                Toast.makeText(this@Main2Activity, "clicked on 1", Toast.LENGTH_LONG).show()
-//            }
-//            if(position==1)
-//            {
-//                Toast.makeText(this@Main2Activity, "clicked on 1", Toast.LENGTH_LONG).show()
-//            }
-//            if(position==2)
-//            {
-//                Toast.makeText(this@Main2Activity, "clicked on 1", Toast.LENGTH_LONG).show()
-//            }
-//            if(position==3)
-//            {
-//                Toast.makeText(this@Main2Activity, "clicked on 1", Toast.LENGTH_LONG).show()
-//            }
-//        }
     }
+
 }

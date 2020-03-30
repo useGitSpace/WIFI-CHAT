@@ -1,9 +1,13 @@
 package com.example.myapp.ui.ledger
 
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.TextView
@@ -11,9 +15,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.myapp.Main2Activity
 import com.example.myapp.R
 import com.example.myapp.ui.main.Model
 import com.example.myapp.ui.main.MyAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
 class LedgerFragment : Fragment() {
 
@@ -30,6 +37,7 @@ class LedgerFragment : Fragment() {
         var listView = root.findViewById<ListView>(R.id.listView)
         var list = mutableListOf<Model>()
 
+
         list.add(Model("BadBOi", "Hello", R.drawable.btn_rounded))
         list.add(Model("BadBOi1", "Hello!", R.drawable.btn_rounded))
         list.add(Model("BadBOi2", "Hello!!", R.drawable.btn_rounded))
@@ -40,9 +48,7 @@ class LedgerFragment : Fragment() {
         listView.setOnItemClickListener { parent: AdapterView<*>, view: View, position:Int, id:Long ->
             if(position==0)
             {
-              //  Toast.makeText(root.context, "clicked on 1", Toast.LENGTH_LONG).show()
-                list.add(Model("new", "new", R.drawable.btn_rounded))
-                listView.adapter = MyAdapter(root.context, R.layout.row, list)
+                Toast.makeText(root.context, "clicked on 1", Toast.LENGTH_LONG).show()
             }
             if(position==1)
             {
@@ -57,8 +63,40 @@ class LedgerFragment : Fragment() {
                 Toast.makeText(root.context, "clicked on 1", Toast.LENGTH_LONG).show()
             }
         }
+        val add = root.findViewById<FloatingActionButton>(R.id.add)
+        add.setOnClickListener{
+//            val  dialogBuilder = AlertDialog.Builder(root.context)
+//            dialogBuilder.setTitle("Location?")
+//            val necessities = arrayOf("Water", "Food","First-Aid","Sanitation");
+//            val checked = booleanArrayOf(true, false, true, false)
+//            dialogBuilder.setMultiChoiceItems(necessities, checked){ dialog, which, isChecked ->
+//
+//            }
+//            dialogBuilder.setPositiveButton("OK")
+//            {
+//                dialog, which->
+                list.add(Model("BadBOi2", "Hello!!", R.drawable.btn_rounded))
+                listView.adapter = MyAdapter(root.context, R.layout.row, list)
+
+//            }
+//
+//            dialogBuilder.setNegativeButton("Cancel", null)
+//            dialogBuilder.setMessage("dfasdfsdf")
+//            val dialog = dialogBuilder.create()
+//            dialog.show()
+            val intent = Intent(root.context, TakeInput::class.java)
+            startActivity(intent)
+
+        }
+
         return root
+
     }
 
-
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        var args = getArguments()
+//        var loc = args?.getString("Location")
+//        Toast.makeText(this.context, loc, Toast.LENGTH_LONG).show()
+//    }
 }

@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.ledger.TakeInput"></activity>
         <activity
             android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"></activity>
+            android:label="@string/title_activity_main2" />
         <activity
-            android:name="Tab1"
+            android:name=".Tab"
             android:label="@string/title_activity_tab2"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
         <activity android:name=".MainActivity">
